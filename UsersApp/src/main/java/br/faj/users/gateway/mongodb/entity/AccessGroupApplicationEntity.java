@@ -3,9 +3,12 @@ package br.faj.users.gateway.mongodb.entity;
 import br.faj.users.domain.AccessApplication;
 import br.faj.users.domain.AccessGroups;
 import br.faj.users.domain.AccessGroupApplication;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 import java.util.List;
 
+@Document(collection = "users")
 public class AccessGroupApplicationEntity {
 
     @Field ("include")
@@ -17,10 +20,10 @@ public class AccessGroupApplicationEntity {
     @Field ("delete")
     private String delete;
 
-    @Field ("accessApplication")
+    @DBRef
     private List<AccessApplication> accessApplications;
 
-    @Field ("accessGroups")
+    @DBRef
     private List<AccessGroups> accessGroups;
 
     public String getInclude() {

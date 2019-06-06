@@ -4,6 +4,8 @@ import br.faj.users.domain.AccessGroups;
 
 public interface AccessGroupsGateway {
 
-    AccessGroups getById (Integer id);
+    AccessGroups findById (Integer id);
     AccessGroups findByDescription (String description);
+
+    AccessGroups save (AccessGroups accessGroupsSave);
 }

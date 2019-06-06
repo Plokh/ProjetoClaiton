@@ -1,8 +1,10 @@
 package br.faj.users.gateway.mongodb.entity;
 
 import br.faj.users.domain.AccessGroups;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+@Document
 public class AccessGroupsEntity {
 
     @Field (value = "id")

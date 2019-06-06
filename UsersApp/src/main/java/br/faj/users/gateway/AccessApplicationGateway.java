@@ -4,7 +4,8 @@ import br.faj.users.domain.AccessApplication;
 
 public interface AccessApplicationGateway {
 
-    AccessApplication getByNameapplication(String nameApplication);
+    AccessApplication findByNameapplication(String nameApplication);
     AccessApplication findByType(String type);
 
+    AccessApplication save (AccessApplication accessApplicationSave);
 }

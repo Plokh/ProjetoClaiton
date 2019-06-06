@@ -3,9 +3,12 @@ package br.faj.users.gateway.mongodb.entity;
 import br.faj.users.domain.AccessApplication;
 import br.faj.users.domain.ScLog;
 import br.faj.users.domain.UsersAccess;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 import java.util.List;
 
+@Document
 public class ScLogEntity {
 
     @Field(value = "id")
@@ -20,10 +23,10 @@ public class ScLogEntity {
     @Field("dataText")
     private String dataText;
 
-    @Field("usersAccess")
+    @DBRef
     private List<UsersAccess> usersAccesses;
 
-    @Field("accessApplication")
+    @DBRef
     private List<AccessApplication> accessApplications;
 
     public Integer getId() {

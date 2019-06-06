@@ -1,16 +1,38 @@
 package br.faj.users.domain;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import org.hibernate.validator.constraints.NotEmpty;
 
-import java.util.Date;
+import javax.validation.constraints.NotNull;
 import java.util.List;
+import java.util.Date;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ScLog {
 
+    @JsonProperty ("id")
+    @NotEmpty
     private Integer id;
+
+    @JsonProperty ("date_time")
+    @NotEmpty
     private Date dateTime;
+
+    @JsonProperty ("event")
+    @NotEmpty
     private String event;
+
+    @JsonProperty ("data_text")
+    @NotEmpty
     private String dataText;
-    private List<UsersAccess> usersAccesses;
-    private List<AccessApplication> accessApplications;
+
+    @JsonProperty ("users_access")
+    @NotEmpty
+    private UsersAccess usersAccesses;
+
+    @JsonProperty ("access_application")
+    @NotEmpty
+    private AccessApplication accessApplications;
 
     public Integer getId() {
         return id;
@@ -44,19 +66,19 @@ public class ScLog {
         this.dataText = dataText;
     }
 
-    public List<UsersAccess> getUsersAccesses() {
+    public UsersAccess getUsersAccesses() {
         return usersAccesses;
     }
 
-    public void setUsersAccesses(List<UsersAccess> usersAccesses) {
+    public void setUsersAccesses(UsersAccess usersAccesses) {
         this.usersAccesses = usersAccesses;
     }
 
-    public List<AccessApplication> getAccessApplications() {
+    public AccessApplication getAccessApplications() {
         return accessApplications;
     }
 
-    public void setAccessApplications(List<AccessApplication> accessApplications) {
+    public void setAccessApplications(AccessApplication accessApplications) {
         this.accessApplications = accessApplications;
     }
 }

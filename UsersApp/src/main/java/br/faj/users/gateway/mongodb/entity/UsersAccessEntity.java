@@ -1,10 +1,12 @@
 package br.faj.users.gateway.mongodb.entity;
 
 import br.faj.users.domain.UsersAccess;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.Date;
 
+@Document
 public class UsersAccessEntity {
 
     @Field(value = "login")

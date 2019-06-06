@@ -1,8 +1,6 @@
 package br.faj.users.gateway.mongodb;
 
 import br.faj.users.gateway.mongodb.entity.AccessGroupApplicationEntity;
-import br.faj.users.gateway.mongodb.entity.AccessApplicationEntity;
-import br.faj.users.gateway.mongodb.entity.AccessGroupsEntity;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,8 +13,6 @@ public interface AccessGroupApplicationRepository extends MongoRepository<Access
     AccessGroupApplicationEntity findByInclude( String include);
     AccessGroupApplicationEntity findByAlter(String alter);
     AccessGroupApplicationEntity findByDelete(String delete);
-    AccessGroupApplicationEntity findByAccessgroups(List<AccessGroupsEntity> accessGroups);
-    AccessGroupApplicationEntity findByAccessapplication(List<AccessApplicationEntity> accessApplications);
     List<AccessGroupApplicationEntity> findAll();
 
 }

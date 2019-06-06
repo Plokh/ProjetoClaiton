@@ -3,15 +3,18 @@ package br.faj.users.gateway.mongodb.entity;
 import br.faj.users.domain.UsersAccess;
 import br.faj.users.domain.AccessGroups;
 import br.faj.users.domain.AccessGroupsUsers;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 import java.util.List;
 
+@Document
 public class AccessGroupsUsersEntity {
 
-    @Field ("usersAccess")
+    @DBRef
     private List<UsersAccess> usersAccesses;
 
-    @Field ("accessGroups")
+    @DBRef
     private List<AccessGroups> accessGroups;
 
     public List<UsersAccess> getUsersAccesses() {

@@ -1,18 +1,52 @@
 package br.faj.users.domain;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import org.hibernate.validator.constraints.NotEmpty;
 
-import java.util.Date;
+import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
+import java.util.List;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class UsersAccess {
 
+    @JsonProperty ("login")
+    @NotEmpty
     private String login;
+
+    @JsonProperty ("name")
+    @NotEmpty
     private String name;
+
+    @JsonProperty ("password")
+    @NotEmpty
     private String password;
+
+    @JsonProperty ("cpf")
+    @NotNull
     private Integer cpf;
+
+    @JsonProperty ("email")
+    @NotEmpty
     private String email;
+
+    @JsonProperty ("telphone")
+    @NotNull
     private Integer telphone;
+
+    @JsonProperty ("celphone")
+    @NotNull
     private Integer celphone;
-    private Date birthDate;
+
+    @JsonProperty ("birth_date")
+    @NotNull
+    private LocalDate birthDate;
+
+    @JsonProperty ("address1")
+    @NotEmpty
     private String address1;
+
+    @JsonProperty ("address2")
     private String address2;
 
 
@@ -72,11 +106,11 @@ public class UsersAccess {
         this.celphone = celphone;
     }
 
-    public Date getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 

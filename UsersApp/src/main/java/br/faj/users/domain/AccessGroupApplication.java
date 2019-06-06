@@ -1,14 +1,30 @@
 package br.faj.users.domain;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import org.hibernate.validator.constraints.NotEmpty;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class AccessGroupApplication {
 
+    @JsonProperty ("include")
     private String include;
+
+    @JsonProperty ("alter")
     private String alter;
+
+    @JsonProperty ("delete")
     private String delete;
-    private List<AccessGroups> accessGroups;
-    private List<AccessApplication> accessApplications;
+
+    @JsonProperty ("access_groups")
+    @NotEmpty
+    private AccessGroups accessGroups;
+
+    @JsonProperty ("access_application")
+    @NotEmpty
+    private AccessApplication accessApplications;
 
     public String getInclude() {
         return include;
@@ -34,19 +50,19 @@ public class AccessGroupApplication {
         this.delete = delete;
     }
 
-    public List<AccessGroups> getAccessGroups() {
+    public AccessGroups getAccessGroups() {
         return accessGroups;
     }
 
-    public void setAccessGroups(List<AccessGroups> accessGroups) {
+    public void setAccessGroups(AccessGroups accessGroups) {
         this.accessGroups = accessGroups;
     }
 
-    public List<AccessApplication> getAccessApplications() {
+    public AccessApplication getAccessApplications() {
         return accessApplications;
     }
 
-    public void setAccessApplications(List<AccessApplication> accessApplications) {
+    public void setAccessApplications(AccessApplication accessApplications) {
         this.accessApplications = accessApplications;
     }
 }
